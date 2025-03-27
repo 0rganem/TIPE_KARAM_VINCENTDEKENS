@@ -1,0 +1,5 @@
+Faire un simili de airtag but :
+-pouvoir cree une machine que l'on peut localiser dans une zone donner
+-pouvoir detetcter si elle en sort
+-developper un algo permettant les 2 premiers objectif puis le coder en python
+-l'integrer dans une  "machine" que l'on peut transporter

@@ -1,5 +1,0 @@
--robot dessinateur ( roulette)(turtle)
--robot qui suit un tracé (retranscription des données informatiquement)
--robot capteur de couleur, de son(dB) (pas de déplacement)
-
-peut suivre un tracé d'une couleur spécifique parmi plusieurs(chevauchement des différentes lignes)
