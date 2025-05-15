@@ -1,4 +1,4 @@
-class polygone:
+class Polygone:
     def __init__(self,pt,coord):
         self.pt = pt #tableau des sommets du polygone
         self.coord = coord #tableau des coord
@@ -10,7 +10,7 @@ class polygone:
             triangles[i] = [self.coord[0],self.coord[i],self.coord[i+1]]
 
 
-class triangle:
+class Triangle:
     def __init__(self,c1,c2,c3):
         self.c1 = c1 #tuple des coordonnées de c1
         self.c2 = c2
@@ -22,14 +22,19 @@ class triangle:
         e = (s1[0] - pt[0])*(s2[1] - pt[1]) - (s1[1] - pt[1])*(s2[0] - pt[0])
         return e
 
-    def is_in_tr(self,pt,tr):
+    def is_in_tr(self,pt):
         ans = True
-        if (pos_pt(tr.c1,tr.c2,pt) < 0):
+        if (self.pos_pt(self.c1,self.c2,pt) < 0):
             ans = False
-        else if (pos_pt(tr.c2,tr.c3,pt) < 0):
+        elif (self.pos_pt(self.c2,self.c3,pt) < 0):
             ans = False
-        else if (pos_pt(tr.c3,tr.c1,pt) < 0):
+        elif (self.pos_pt(ssselfff.c3,self.c1,pt) < 0):
             ans =False
         return ans
         
-        
+def test() :
+    tr= Triangle((2,2),(3,6),(6,5))
+    rslt = tr.is_in_tr((4,4))
+    print(rslt)
+
+test()
