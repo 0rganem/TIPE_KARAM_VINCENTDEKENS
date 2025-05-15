@@ -1,14 +1,13 @@
 class Polygone:
-    def __init__(self,pt,coord):
-        self.pt = pt #tableau des sommets du polygone
-        self.coord = coord #tableau des coord
+    def __init__(self,coord): #entrer les sommet ds le bonne ordre (trigo) 
+        self.coord = coord #tableau des coord (tuple)
 
     def triangulation(self):
         #créer des triangles à l'intérieur du polynome
         triangles = []
-        for i in range (1,len(self.pt-1)):
-            triangles[i] = [self.coord[0],self.coord[i],self.coord[i+1]]
-
+        for i in range (1,len(self.coord)-1):
+            triangles.append(Triangle(self.coord[0],self.coord[i],self.coord[i+1]))
+        return triangles
 
 class Triangle:
     def __init__(self,c1,c2,c3):
@@ -28,13 +27,20 @@ class Triangle:
             ans = False
         elif (self.pos_pt(self.c2,self.c3,pt) < 0):
             ans = False
-        elif (self.pos_pt(ssselfff.c3,self.c1,pt) < 0):
+        elif (self.pos_pt(self.c3,self.c1,pt) < 0):
             ans =False
         return ans
-        
+def is_in_poly(pl, pt) :
+    trs = pl.triangulation()
+    for i in trs :
+        if i.is_in_tr(pt) :
+            return True 
+    return False
+
+
 def test() :
-    tr= Triangle((2,2),(3,6),(6,5))
-    rslt = tr.is_in_tr((4,4))
-    print(rslt)
+    pl = Polygone([(2,2),(6,5),(3,6),(0,6),(1,4)])
+    print(is_in_poly(pl, (1,6)))
+
 
 test()
