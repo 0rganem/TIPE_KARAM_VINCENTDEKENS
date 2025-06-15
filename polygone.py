@@ -17,19 +17,21 @@ class Triangle:
         self.air = (c1[0]*(c2[1]-c3[1])+c2[0]*(c3[1]-c1[1])+c3[0]*(c1[1]-c2[1]))/2
         
 
-    def pos_pt(self,s1,s2,pt):
-        e = (s1[0] - pt[0])*(s2[1] - pt[1]) - (s1[1] - pt[1])*(s2[0] - pt[0])
-        return e
+    def crd_bary(self,s1,s2,pt):
+        pa = (pt[0]*(s1[1]-s2[1])+s3[0]*(s2[1]-pt[1])+s2[0]*(pt[1]-s1[1]))/2
+        bary = pa/self.air
+        return bary
 
     def is_in_tr(self,pt):
         ans = True
-        if (self.pos_pt(self.c1,self.c2,pt) < 0):
+        if (self.crd_bary(self.c1,self.c2,pt) < 0):
             ans = False
-        elif (self.pos_pt(self.c2,self.c3,pt) < 0):
+        elif (self.crd_bary(self.c2,self.c3,pt) < 0):
             ans = False
-        elif (self.pos_pt(self.c3,self.c1,pt) < 0):
+        elif (self.crd_bary(self.c3,self.c1,pt) < 0):
             ans =False
         return ans
+        
 def is_in_poly(pl, pt) :
     trs = pl.triangulation()
     for i in trs :
